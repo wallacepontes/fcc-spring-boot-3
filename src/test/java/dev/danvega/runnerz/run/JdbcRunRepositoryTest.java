@@ -29,14 +29,14 @@ class JdbcRunRepositoryTest {
                 LocalDateTime.now(),
                 LocalDateTime.now().plus(30, ChronoUnit.MINUTES),
                 3,
-                Location.INDOOR));
+                Location.INDOOR, null));
 
         repository.create(new Run(2,
                 "Wednesday Evening Run",
                 LocalDateTime.now(),
                 LocalDateTime.now().plus(60, ChronoUnit.MINUTES),
                 6,
-                Location.INDOOR));
+                Location.INDOOR, null));
     }
 
     @Test
@@ -65,7 +65,7 @@ class JdbcRunRepositoryTest {
                 LocalDateTime.now(),
                 LocalDateTime.now().plus(30, ChronoUnit.MINUTES),
                 3,
-                Location.INDOOR));
+                Location.INDOOR, null));
         List<Run> runs = repository.findAll();
         assertEquals(3, runs.size());
     }
@@ -77,7 +77,7 @@ class JdbcRunRepositoryTest {
                 LocalDateTime.now(),
                 LocalDateTime.now().plus(30, ChronoUnit.MINUTES),
                 5,
-                Location.OUTDOOR), 1);
+                Location.OUTDOOR, null), 1);
         var run = repository.findById(1).get();
         assertEquals("Monday Morning Run", run.title());
         assertEquals(5, run.miles());

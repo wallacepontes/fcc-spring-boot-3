@@ -54,7 +54,7 @@ class RunControllerIntTest {
 
     @Test
     void shouldCreateNewRun() {
-        Run run = new Run(11, "Evening Run", LocalDateTime.now(), LocalDateTime.now().plusHours(2), 10, Location.OUTDOOR);
+        Run run = new Run(11, "Evening Run", LocalDateTime.now(), LocalDateTime.now().plusHours(2), 10, Location.OUTDOOR, null);
 
         ResponseEntity<Void> newRun = restClient.post()
                 .uri("/api/runs")
